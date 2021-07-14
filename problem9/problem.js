@@ -1,16 +1,15 @@
 
 function extractNumber(data) {
+
     if (typeof data === "number" ) {
         return data;
     }
 
     const firstSymbol = parseInt(data[0], 10);
 
-
     if (isNaN(firstSymbol)) {
         return 0;
     }
-
 
     const numsFromStr = data.replace(/^\D+/g, '');
 
@@ -19,34 +18,22 @@ function extractNumber(data) {
     }
 
     return parseInt(numsFromStr, 10);
-
 }
 
 
-let acc = 0;
 
 function sum(arr) {
 
-    for (let i = 0; i < arr.length; i++) {
+    return arr.reduce((summary, item) => {
 
-        if (Array.isArray(arr[i])) {
-            sum(arr[i])
+
+        if (Array.isArray(item)) {
+            return summary + sum(item);
         }
 
-        else {
+        return summary + extractNumber(item)
 
-            let sub = arr[i];
-
-            if (typeof arr[i] !== "number") {
-                sub = extractNumber(arr[i]);
-            }
-
-            acc = acc + sub;
-
-        }
-    }
-
-    return acc;
+    }, 0);
 
 
 }
