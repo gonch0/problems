@@ -1,25 +1,11 @@
-spaceString1 = "QUICK FOX JUMPS ";
-//"KCIUQ XOF SPMUJ"
-spaceArr1 = spaceString1.split("");
-
-spaceString2 = "  QUICK FOX   JUMPS ";
-
-// "  KCIUQ XOF   SPMUJ "
-spaceArr2 = spaceString2.split("");
-
-spaceString3 = "ABC";
-// "CBA"
-spaceArr3 = spaceString3.split("");
-
-
-//. но следующий усложняющий вопрос: представь, что тебе на вход приходит сразу arr
-//
-// и ты не имеешь права использовать дополнительную память
-//
-// ну то есть переменные можно, а вот копировать входной массив, его куски и проч — нельзя
-
-// надо переупорядочить arr так, чтобы стало збс
-
+/*
+	* Дана строка (возможно, пустая), состоящая из букв A-Z и пробелов, разделяющих слова:
+	* "QUICK FOX   JUMPS"
+	* Нужно написать функцию, которая развернет слова:
+	* "KCIUQ XOF   SPMUJ"
+	* ""
+	* "ABC"
+ */
 
 function spacedReverse(arr) {
     console.log(arr);
@@ -85,7 +71,16 @@ function spacedReverse(arr) {
 
 }
 
+spaceString1 = "QUICK FOX JUMPS";
+//"KCIUQ XOF SPMUJ"
 
-// console.log(spacedReverse(spaceArr1));
-console.log(spacedReverse(spaceArr2));
-// console.log(spacedReverse(spaceArr3));
+spaceString2 = "  QUICK FOX   JUMPS ";
+// "  KCIUQ XOF   SPMUJ "
+
+spaceString3 = "ABC";
+// "CBA"
+
+
+console.log(spacedReverse(spaceString1));
+console.log(spacedReverse(spaceString2));
+console.log(spacedReverse(spaceString3));

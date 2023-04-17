@@ -1,3 +1,29 @@
+/*
+
+1. Плоский словарь
+Ассоциативный массив вида
+
+	{
+		a: 'jack',
+		b: {
+			c: 'sparrow',
+			d: {
+			   e: 'hahaha'
+			}
+		}
+	}
+
+
+преобразовать в:
+
+	{
+		'a': 'jack',
+		'b.c': 'sparrow',
+		'b.d.e': 'hahaha'
+	}
+
+ */
+
 const jack = {
     a: 'jack',
     b: {
@@ -49,6 +75,5 @@ function flatten(assoc, fullKey = null) {
 
 }
 
-
-// console.log(flatten(jack));
+console.log(flatten(jack));
 console.log(flatten(jack2));

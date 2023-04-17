@@ -25,33 +25,35 @@ Output: false
 */
 
 
-var isValid = function(s) {
+function isValid(brackets) {
 
-    var arr = Array.from(s);
-
-    var opened = ['(', '[', '{'];
-
-    var closed2Opened = {
-        ')' : '(',
-        ']' : '[',
-        '}' : '{',
+    var closedToOpened = {
+        ')': '(',
+        ']': '[',
+        '}': '{'
     }
 
-    var stack = [];
+    var stack = []
+    var opened = Object.values(closedToOpened);
 
-    for (let i = 0; i < s.length; i++) {
-        if (opened.includes(arr[i])) {
-            stack.push(arr[i]);
+    for (let i = 0; i < brackets.length; i++) {
+        if (opened.includes(brackets[i])) {
+            stack.push(brackets[i])
         } else {
-            if (closed2Opened[arr[i]] !== stack.pop()) {
-                return false;
+            var last = stack[stack.length - 1];
+
+            if (last !== closedToOpened[brackets[i]]) {
+                return false
+            } else {
+                stack.pop();
             }
         }
     }
 
     return stack.length === 0;
-
-};
+}
 
 
 console.log(isValid('({})')) // true
+console.log(isValid('()[]{}')) // true
+console.log(isValid('(]')) // false
